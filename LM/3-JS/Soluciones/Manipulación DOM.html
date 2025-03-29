@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Caso práctico 3 Gestion de elementos desde JavaScript</title>
+  </head>
+  <body>
+    <h2>
+      Incorpora un enlace a una URL en un párrafo / añade un nuevo elemento tipo
+      parrafo y elimina el párrafo 2.
+    </h2>
+    <p>1. Párrafo primero</p>
+    <p>2. Párrafo segundo</p>
+    <p>3. Párrafo tercero</p>
+    <p>4. Párrafo cuarto</p>
+    <p>5. Párrafo quinto</p>
+    <script>
+      let parrafos = document.querySelectorAll("p");
+      let enlace = document.createElement("a");
+      enlace.href = "https://www.marca.com";
+      enlace.innerHTML = "ir a la URL de marca";
+      parrafos[2].appendChild(enlace);
+
+      let parrafoNuevo = document.createElement("p");
+      parrafoNuevo.innerHTML = "Nuevo texto con JavaScript";
+      parrafoNuevo.style.color = "green";
+
+      let nuevop = document.querySelectorAll("body")[0];
+      nuevop.insertBefore(parrafoNuevo, parrafos[3]);
+      //parrafos[3].before(parrafoNuevo);
+
+      nuevop.removeChild(parrafos[1]);
+
+      //parrafos[1].remove();
+    </script>
+  </body>
+</html>

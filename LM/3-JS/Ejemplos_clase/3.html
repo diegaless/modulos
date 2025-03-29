@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 3: Clonar y Reordenar Nodos</title>
+  </head>
+  <body>
+    <p>Párrafo 1</p>
+    <p>Párrafo 2</p>
+    <p>Párrafo 3</p>
+    <p>Párrafo 4</p>
+    <p>Párrafo 5</p>
+    <p>Párrafo 6</p>
+    <script>
+      let parrafos = document.querySelectorAll("p");
+
+      let clon = parrafos[3].cloneNode(true);
+      document.body.appendChild(clon);
+
+      let primerParrafo = parrafos[0];
+      let tercerParrafo = parrafos[2];
+
+      tercerParrafo.parentNode.insertBefore(
+        primerParrafo,
+        tercerParrafo.nextSibling
+      );
+
+      let enlaceSO = document.createElement("a");
+      enlaceSO.href = "https://www.stackoverflow.com";
+      enlaceSO.innerHTML = " Stack Overflow";
+      enlaceSO.style.textDecoration = "underline";
+
+      clon.appendChild(enlaceSO);
+    </script>
+  </body>
+</html>

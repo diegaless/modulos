@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 2: Estilos y Eventos</title>
+  </head>
+  <body>
+    <p>Párrafo 1</p>
+    <p>Párrafo 2</p>
+    <p>Párrafo 3</p>
+    <p>Párrafo 4</p>
+    <p>Párrafo 5</p>
+    <script>
+      let parrafos = document.querySelectorAll("p");
+      let enlaceWiki = document.createElement("a");
+      enlaceWiki.href = "https://www.wikipedia.org";
+      enlaceWiki.target = "_blank";
+      enlaceWiki.innerHTML = " Wikipedia";
+      parrafos[1].appendChild(enlaceWiki);
+
+      parrafos.forEach((p, index) => {
+        p.style.color = "gray";
+        if (index === 2) {
+          p.style.backgroundColor = "lightblue";
+        }
+      });
+
+      let boton = document.createElement("button");
+      boton.innerHTML = "Eliminar último párrafo";
+      boton.addEventListener("click", () => {
+        let todosP = document.querySelectorAll("p");
+        if (todosP.length > 0) {
+          let ultimoP = todosP[todosP.length - 1];
+          ultimoP.parentNode.removeChild(ultimoP);
+          boton.innerHTML = "Último eliminado";
+        }
+      });
+      document.body.appendChild(boton);
+    </script>
+  </body>
+</html>

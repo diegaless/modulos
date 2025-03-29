@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 1: Inserción y Modificación Condicional</title>
+    <style>
+      .destacado {
+        border: 1px solid #333;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Párrafo 1</p>
+    <p>Este es un párrafo importante</p>
+    <p>Párrafo 3</p>
+    <p>Párrafo 4</p>
+    <p>Párrafo 5</p>
+    <p>Eliminar este párrafo</p>
+    <p>Párrafo 7</p>
+    <p>Párrafo 8</p>
+    <script>
+      let parrafos = document.querySelectorAll("p");
+
+      let parrafo3 = parrafos[2];
+
+      let enlaceMozilla = document.createElement("a");
+      enlaceMozilla.href = "https://www.mozilla.org";
+      enlaceMozilla.innerHTML = "Mozilla ";
+      parrafo3.insertBefore(enlaceMozilla, parrafo3.firstChild);
+
+      let enlaceGithub = document.createElement("a");
+      enlaceGithub.href = "https://www.github.com";
+      enlaceGithub.innerHTML = " GitHub";
+      //parrafo3.appendChild(enlaceGithub);
+      parrafo3.insertBefore(enlaceGithub, null);
+
+      parrafos.forEach((p) => {
+        if (p.textContent.includes("importante")) {
+          p.style.backgroundColor = "yellow";
+        }
+      });
+
+      let nuevoParrafo = document.createElement("p");
+      nuevoParrafo.innerHTML = "Párrafo añadido dinámicamente";
+      nuevoParrafo.classList.add("destacado");
+
+      let ultimo = document.querySelector("body").lastElementChild;
+      document.body.insertBefore(nuevoParrafo, ultimo);
+
+      parrafos.forEach((p) => {
+        if (p.textContent.trim() === "Eliminar este párrafo") {
+          p.parentNode.removeChild(p);
+        }
+      });
+    </script>
+  </body>
+</html>

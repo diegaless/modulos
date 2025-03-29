@@ -1,0 +1,24 @@
+# Ignorar archivos temporales de Windows
+Thumbs.db
+.DS_Store
+
+# Ignorar archivos de backup
+*.bak
+*.tmp
+*~
+
+# Ignorar carpetas ocultas
+.*.swp
+*.swo
+
+# Archivos de editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Node (por si metes JS con npm en soluciones)
+node_modules/
+
+# Archivos personales o privados
+*.log
+*.env
